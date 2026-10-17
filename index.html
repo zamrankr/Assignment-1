@@ -36,14 +36,13 @@
 
   }
 
-  img {
+   .top-section img {
     width: 100%;
     height: 100%;
     object-fit: cover;
     object-position: center top;
   }
-
-  p {
+  .top-section p {
     position: absolute;
     color: #3c4066;
     background-color: none;
@@ -56,11 +55,25 @@
 
   }
 
+    .sticky-nav-layer {
+    position: fixed;
+    top: 60px; 
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 55px; 
+    pointer-events: none; 
+  }
+
   .logo {
     margin: 55px 0 0 55px;
     width: 50px;
     height: 45px;
     color: white;
+    position: sticky;
   }
 
   .logo svg {
@@ -72,22 +85,26 @@
   .hero-section {
     display: flex;
     justify-content: space-between;
+    box-sizing: border-box;
+    padding: 20px 40px;
+    position: relative;
+
   }
 
 
   .hero-container {
-    width: 1100px;
-    height: 600px;
+    width: 100%;
+    max-width: 1350px;
+    height: 650px;
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: 50px auto;
+    margin: 10px auto;
     position: relative;
   }
 
   .hero-image {
-    width: 1200px;
-    height: 600px;
+    width: 100%;
     object-fit: fill;
     display: block;
   }
@@ -97,7 +114,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 400px;
+    max-width: 300px;
     height: auto;
     object-fit: contain;
   }
@@ -111,7 +128,7 @@
     background: transparent;
     border: none;
     cursor: pointer;
-
+    position: sticky;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -126,13 +143,22 @@
     display: block;
   }
 
+  .pre-order-wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center; 
+}
+
   .pre-order {
-    width: 100%;
-    height: 50px;
+    width: 100%;             
+    max-width: 1300px; 
+    height: 120px;
+    box-sizing: border-box;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    padding: 10px 20vw;
+    align-items: center;
+    padding: 10px 0;
   }
 
   .pre-order p {
@@ -141,73 +167,377 @@
     line-height: 35px;
     letter-spacing: -0.29px;
     color: white;
+    font-family: 'ArtDeco Bold' !important;
   }
 
   .order-button {
-    padding: 12px 14px;
+    padding: 22px 22px;
     font-size: 22px;
-    text-shadow: 1px 0 0 currentColor, 1px 0 0 currentColor;
-
+    font-weight: 700;
     background-color: #FFC0D1;
     color: #16172A;
     border: none;
     border-radius: 50px;
-    width: 200px;
-    font-family: "Poiret One";
-
+    width: 210px;
+    height: 69px;
+    transition: background-color 1s ease, color 1s ease, text-shadow 1s ease, box-shadow 1s ease;
   }
 
+  .order-button:hover {
+    color: #974858;
 
+  
+  box-shadow: 
+    0 0 10px #ffffff,   
+    0 0 40px #ff69b4,   
+    0 0 50px #ff1493,   
+    inset 0 0 14px rgba(255, 255, 255, 0.6); 
+  }
+
+  .button-group {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    position: relative;
+  }
+
+    .scroll-arrow {
+    background: none;
+    border: none;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 120px;
+    }  
+    
+    
+
+  .console-logos {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+  }
+
+  .console-logos img {
+    max-width: 200px;
+    object-position: right;
+    height: auto;
+  }
+
+  .left, .right, .center {
+    flex: 1;
+    display: flex;
+    align-items: center;
+  }
+
+  .left {
+    justify-content: flex-start;
+  }
+
+  .center {
+    justify-content: center;
+  }
+
+  .right {
+    justify-content: flex-end;
+    align-items: flex-end;
+  }
+
+  .launch-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100vh;
+    margin-top: 100px;
+    overflow: hidden;
+    position: relative;
+  }
+
+  .launch-section img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+  .launch-text {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    justify-content: flex-start;
+    align-items: center;
+    z-index: 1;
+    gap: 20px;
+    top: 100px;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  .watch p {
+    color: #fbd9e0;
+    background-color: none;
+    font-size: 25px;
+    line-height: 17px;
+    letter-spacing: 2.25px;
+    font-weight: 900;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  }
+
+  .launch p {
+    color: #ffffff;
+    font-size: 66px;
+    letter-spacing: 15px;
+    font-weight: 900;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  }
+
+  .launch {
+    position: relative;
+    left: 15px;
+  }
+
+  .play-button {
+    position: absolute;
+    color: white;
+    opacity: 0.5;
+    display: flex;
+    cursor: pointer;
+    z-index: 3;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+  }
+
+  .play-button:hover {
+    opacity: 0.7;
+    transform: scale(1.15);
+  }
+
+  .video-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(22, 23, 42, 0.95);
+  backdrop-filter: blur(8px);
+  z-index: 1000; 
+  
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start; 
+  align-items: center;
+  padding: 60px 20px;          
+  overflow-y: auto;            
+  
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.4s ease;
+}
+
+.video-overlay:target {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.video-container {
+  position: relative;
+  width: 100%;               
+  max-width: 1000px;
+  aspect-ratio: 16 / 9;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  margin-bottom: 40px;          
+  flex-shrink: 0;               
+}
+
+.video-container iframe {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.close-button {
+  position: fixed;             
+  top: 20px;
+  right: 20px;
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+  text-decoration: none; 
+  font-size: 30px;
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 100000;
+  transition: background 0.2s, transform 0.2s;
+}
+
+.close-button:hover {
+  background: rgba(255, 255, 255, 0.3);
+  transform: scale(1.05);
+}
+
+
+.video-details-section {
+  width: 100%;
+  max-width: 1000px;       
+  margin: 0 auto;
+  padding: 0 0 40px 0;         
+  background-color: transparent; 
+  color: #ffffff;
+
+}
+
+.details-split-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 50px;
+}
+
+.details-left, .details-right {
+  flex: 1;
+}
+
+.main-title {
+  font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-size: 40px;
+  line-height: 1.1;
+  letter-spacing: 1.5px;
+  margin-bottom: 12px;
+  font-weight: 700;
+  color: #fff9cb;
+}
+
+.release-date {
+  font-size: 19px;
+  color: #7b7d99; 
+  letter-spacing: 0.5px;
+  font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.description-para {
+  position: static; 
+  font-size: 19px;
+  line-height: 1.6;
+  color: #7b7d99;
+  font-weight: normal ;
+  letter-spacing: 0.2px;
+  font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+  
 </style>
 
 <body>
+<div class="top-section">
+  <img src="top-section-1.png" alt="">
+  <p>LAUNCH TRAILER NOW PLAYING</p>
+</div>
 
-  <div class="top-section">
-    <img src="top-section-1.png" alt="">
-    <p>LAUNCH TRAILER NOW PLAYING</p>
+<div class="hero-section">
+  <div class="logo">
+    <svg fill="none" height="100%" width="100%" viewBox="0 0 46 35" xmlns="http://www.w3.org/2000/svg"
+      class="_1o5pgyxe _1o5pgyxf _1n4m2yu0" aria-hidden="true" focusable="false">
+      <path d="M46.2661 0.800781H34.7236V34.4008H46.2661V0.800781Z" fill="currentColor"></path>
+      <path d="M33.9162 0.800781L17.3358 34.4008L0.776855 0.800781H12.3139L17.3332 11.5445L22.3766 0.800781H33.9162Z"
+        fill="currentColor"></path>
+      <path
+        d="M46.9194 1.43945C47.0056 1.43945 47.0488 1.47492 47.0488 1.54585C47.0488 1.60496 47.0155 1.63872 46.9489 1.64712L47.0573 1.81154H46.9939L46.8905 1.65148H46.828V1.81154H46.769V1.43945H46.9192H46.9194ZM46.8959 1.60465C46.9317 1.60465 46.9565 1.59999 46.9698 1.59065C46.9831 1.58132 46.9898 1.56561 46.9898 1.54336C46.9898 1.50541 46.9631 1.48628 46.9099 1.48628H46.8282V1.60465H46.8959Z"
+        fill="currentColor"></path>
+      <path
+        d="M46.8961 1.94775C46.7154 1.94775 46.5684 1.80355 46.5684 1.62622C46.5684 1.44889 46.7154 1.30469 46.8961 1.30469C47.0769 1.30469 47.2239 1.44889 47.2239 1.62622C47.2239 1.80355 47.0769 1.94775 46.8961 1.94775ZM46.8961 1.35509C46.7437 1.35509 46.6196 1.47673 46.6196 1.62638C46.6196 1.77602 46.7436 1.89767 46.8961 1.89767C47.0487 1.89767 47.1727 1.77602 47.1727 1.62638C47.1727 1.47673 47.0487 1.35509 46.8961 1.35509Z"
+        fill="currentColor"></path>
+    </svg>
   </div>
 
-  <div class="hero-section">
-    <div class="logo">
-      <svg fill="none" height="100%" width="100%" viewBox="0 0 46 35" xmlns="http://www.w3.org/2000/svg"
-        class="_1o5pgyxe _1o5pgyxf _1n4m2yu0" aria-hidden="true" focusable="false">
-        <path d="M46.2661 0.800781H34.7236V34.4008H46.2661V0.800781Z" fill="currentColor"></path>
-        <path d="M33.9162 0.800781L17.3358 34.4008L0.776855 0.800781H12.3139L17.3332 11.5445L22.3766 0.800781H33.9162Z"
-          fill="currentColor"></path>
-        <path
-          d="M46.9194 1.43945C47.0056 1.43945 47.0488 1.47492 47.0488 1.54585C47.0488 1.60496 47.0155 1.63872 46.9489 1.64712L47.0573 1.81154H46.9939L46.8905 1.65148H46.828V1.81154H46.769V1.43945H46.9192H46.9194ZM46.8959 1.60465C46.9317 1.60465 46.9565 1.59999 46.9698 1.59065C46.9831 1.58132 46.9898 1.56561 46.9898 1.54336C46.9898 1.50541 46.9631 1.48628 46.9099 1.48628H46.8282V1.60465H46.8959Z"
-          fill="currentColor"></path>
-        <path
-          d="M46.8961 1.94775C46.7154 1.94775 46.5684 1.80355 46.5684 1.62622C46.5684 1.44889 46.7154 1.30469 46.8961 1.30469C47.0769 1.30469 47.2239 1.44889 47.2239 1.62622C47.2239 1.80355 47.0769 1.94775 46.8961 1.94775ZM46.8961 1.35509C46.7437 1.35509 46.6196 1.47673 46.6196 1.62638C46.6196 1.77602 46.7436 1.89767 46.8961 1.89767C47.0487 1.89767 47.1727 1.77602 47.1727 1.62638C47.1727 1.47673 47.0487 1.35509 46.8961 1.35509Z"
-          fill="currentColor"></path>
-      </svg>
-    </div>
 
+  <div class="hero-container">
+    <img class="hero-image" src="hero-section-poster.jpeg" alt="gtavi-image">
+    <img class="overlay" src="gta6-logo.png" alt="gta6-center-logo">
 
-    <div class="hero-container">
-      <img class="hero-image" src="hero-section-poster.jpeg" alt="gtavi-image">
-      <img class="overlay" src="gta6-logo.png" alt="gta6-center-logo">
-
-
-    </div>
-
-
-    <button class="menu-button" aria-label="Expand Navigation Menu" aria-expanded="false">
-      <span></span>
-      <span></span>
-    </button>
 
   </div>
 
- <div class="pre-order">
-    <div>
+
+  <button class="menu-button" aria-label="Expand Navigation Menu" aria-expanded="false">
+    <span></span>
+    <span></span>
+  </button>
+
+</div>
+<div class="pre-order-wrapper">
+  <div class="pre-order">
+    <div class="left">
       <p>Coming <br>
         November 19, 2026</p>
     </div>
-    <div>
-      <button class="order-button" type="button">Pre-Order Now</button>
+    <div class="center">
+      <div class="button-group">
+        <button class="order-button glow-button" type="button">Pre-Order Now</button>
+
+        <button class="scroll-arrow" type="button" aria-label="Scroll down">
+          <svg width="50" height="20" viewBox="0 0 24 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M2 2L12 12L22 2" stroke="#FFC0D1" stroke-width="3" stroke-linecap="round"
+              stroke-linejoin="round" />
+          </svg>
+        </button>
+      </div>
+    </div>
+    <div class="console-logos right">
+      <img src="ps.png" alt="">
+      <img src="xbox.png" alt="">
     </div>
   </div>
+</div>
+<div class="launch-section">
+  <img src="launch-image.png" alt="">
+
+  <a href="#videoPlayerModal" class="play-button">
+  <svg xmlns="http://w3.org" width="150" height="150" fill="none" viewBox="0 0 40 40">
+    <path fill-rule="evenodd" clip-rule="evenodd" d="M20 40C31.0457 40 40 31.0457 40 20C40 8.9543 31.0457 0 20 0C8.9543 0 0 8.9543 0 20C0 31.0457 8.9543 40 20 40ZM16.8988 14.426C16.7193 14.3106 16.4911 14.3024 16.3038 14.4047C16.1165 14.5069 16 14.7033 16 14.9167V25.4167C16 25.6301 16.1165 25.8264 16.3038 25.9287C16.4911 26.0309 16.7193 26.0227 16.8988 25.9074L25.0654 20.6574C25.2324 20.55 25.3333 20.3652 25.3333 20.1667C25.3333 19.9682 25.2324 19.7833 25.0654 19.676L16.8988 14.426Z" fill="currentColor"/>
+  </svg>
+</a>
+
+<div class="video-overlay" id="videoPlayerModal">
+  <div class="video-container">
+    <a href="#" class="close-button">&times;</a>
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/rz1B4B2yBZY?si=FEmzptQHB-b04Kkh" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+  </div>
+
+  <div class="video-details-section">
+  <div class="details-split-row">
+    
+    <div class="details-left">
+      <h1 class="main-title">GRAND THEFT AUTO <br> VI LAUNCH TRAILER</h1>
+      <span class="release-date">October 15, 2026</span>
+    </div>
+    
+    <div class="details-right">
+      <p class="description-para">
+        Check out the Launch Trailer, featuring the debut of “Flower in a Hurricane” from original score composers Justice feat. Tame Impala, SZA, and King Gizzard & The Lizard Wizard.
+      </p>
+    </div>
+
+  </div>
+</div>
+</div>
+
+  <div class="launch-text">
+    <div class="watch"><p>WATCH</p></div>
+    <div class="launch"><p>LAUNCH TRAILER</p></div>
+  </div>
+
+  
+
+</div>
 
  
 </body>
