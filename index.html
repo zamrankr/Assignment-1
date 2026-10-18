@@ -434,6 +434,115 @@
   font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
   
+/* Trailers Cards Section */
+  .more-trailers-section {
+    width: 100%;
+    background-color: #16172A; /* Matches your body background */
+    display: flex;
+    justify-content: center;
+    padding: 60px 40px;
+  }
+
+  .trailers-container {
+    width: 100%;
+    max-width: 1350px;
+    display: flex;
+    justify-content: space-between;
+    gap: 30px;
+  }
+
+  .trailer-card {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+  }
+
+  .trailer-card:hover .trailer-image-wrapper img {
+    transform: scale(1.03);
+  }
+
+  .trailer-image-wrapper {
+    width: 100%;
+    aspect-ratio: 9 / 16; 
+    position: relative;
+    border-radius: 12px;
+    overflow: hidden;
+    margin-bottom: 20px;
+  }
+
+  .trailer-image-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+  }
+
+  .card-play-button {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    z-index: 2;
+    transition: transform 0.2s ease;
+  }
+
+  .trailer-card:hover .card-play-button {
+    transform: translate(-50%, -50%) scale(1.1);
+  }
+
+  .trailer-text {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .watch-tag {
+    color: #fbd9e0; 
+    font-size: 14px;
+    letter-spacing: 2px;
+    font-weight: 900;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  }
+
+  .trailer-title {
+    color: #ffffff;
+    font-size: 26px;
+    letter-spacing: 2px;
+    font-weight: 900;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  }
+
+
+  .scroll-canvas-section {
+    /* Controls how much scrolling is required to finish the sequence */
+    height: 250vh; 
+    position: relative;
+    background-color: #000;
+  }
+
+  .sticky-canvas-container {
+    position: sticky;
+    top: 0;
+    height: 100vh; 
+    width: 100%;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  #scrub-canvas {
+    width: 100%;
+    height: 100vh;
+    object-fit: cover; 
+    display: block;
+    object-position: center center;
+  }
+
 </style>
 
 <body>
@@ -534,12 +643,159 @@
     <div class="watch"><p>WATCH</p></div>
     <div class="launch"><p>LAUNCH TRAILER</p></div>
   </div>
+</div>
+<div class="more-trailers-section">
+  <div class="trailers-container">
+    
+    <!-- Trailer Card 1 -->
+    <div class="trailer-card">
+      <div class="trailer-image-wrapper">
+       
+        <img src="Jason_and_Lucia_Robbery_portrait.jpg" alt="An Extended Look">
+        <div class="card-play-button">
+          <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" fill="none" viewBox="0 0 40 40">
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M20 40C31.0457 40 40 31.0457 40 20C40 8.9543 31.0457 0 20 0C8.9543 0 0 8.9543 0 20C0 31.0457 8.9543 40 20 40ZM16.8988 14.426C16.7193 14.3106 16.4911 14.3024 16.3038 14.4047C16.1165 14.5069 16 14.7033 16 14.9167V25.4167C16 25.6301 16.1165 25.8264 16.3038 25.9287C16.4911 26.0309 16.7193 26.0227 16.8988 25.9074L25.0654 20.6574C25.2324 20.55 25.3333 20.3652 25.3333 20.1667C25.3333 19.9682 25.2324 19.7833 25.0654 19.676L16.8988 14.426Z" fill="currentColor"/>
+          </svg>
+        </div>
+      </div>
+      <div class="trailer-text">
+        <p class="watch-tag">WATCH</p>
+        <p class="trailer-title">AN EXTENDED LOOK</p>
+      </div>
+    </div>
 
-  
+    <!-- Trailer Card 2 -->
+    <div class="trailer-card">
+      <div class="trailer-image-wrapper">
+        
+        <img src="Jason_and_Lucia_02_portrait.jpg" alt="Trailer 2">
+        <div class="card-play-button">
+          <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" fill="none" viewBox="0 0 40 40">
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M20 40C31.0457 40 40 31.0457 40 20C40 8.9543 31.0457 0 20 0C8.9543 0 0 8.9543 0 20C0 31.0457 8.9543 40 20 40ZM16.8988 14.426C16.7193 14.3106 16.4911 14.3024 16.3038 14.4047C16.1165 14.5069 16 14.7033 16 14.9167V25.4167C16 25.6301 16.1165 25.8264 16.3038 25.9287C16.4911 26.0309 16.7193 26.0227 16.8988 25.9074L25.0654 20.6574C25.2324 20.55 25.3333 20.3652 25.3333 20.1667C25.3333 19.9682 25.2324 19.7833 25.0654 19.676L16.8988 14.426Z" fill="currentColor"/>
+          </svg>
+        </div>
+      </div>
+      <div class="trailer-text">
+        <p class="watch-tag">WATCH</p>
+        <p class="trailer-title">TRAILER 2</p>
+      </div>
+    </div>
 
+    <!-- Trailer Card 3 -->
+    <div class="trailer-card">
+      <div class="trailer-image-wrapper">
+        
+        <img src="Jason_and_Lucia_01_portrait.jpg" alt="Trailer 1">
+        <div class="card-play-button">
+          <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" fill="none" viewBox="0 0 40 40">
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M20 40C31.0457 40 40 31.0457 40 20C40 8.9543 31.0457 0 20 0C8.9543 0 0 8.9543 0 20C0 31.0457 8.9543 40 20 40ZM16.8988 14.426C16.7193 14.3106 16.4911 14.3024 16.3038 14.4047C16.1165 14.5069 16 14.7033 16 14.9167V25.4167C16 25.6301 16.1165 25.8264 16.3038 25.9287C16.4911 26.0309 16.7193 26.0227 16.8988 25.9074L25.0654 20.6574C25.2324 20.55 25.3333 20.3652 25.3333 20.1667C25.3333 19.9682 25.2324 19.7833 25.0654 19.676L16.8988 14.426Z" fill="currentColor"/>
+          </svg>
+        </div>
+      </div>
+      <div class="trailer-text">
+        <p class="watch-tag">WATCH</p>
+        <p class="trailer-title">TRAILER 1</p>
+      </div>
+    </div>
+
+  </div>
 </div>
 
+<!-- Scroll-Scrub Canvas Section -->
+<div class="scroll-canvas-section">
+  <div class="sticky-canvas-container">
+    <canvas id="scrub-canvas"></canvas>
+  </div>
+</div>
  
 </body>
+<script>
+  // ==========================================
+  // 1. CANVAS SETUP (Runs once on page load)
+  // ==========================================
+  const canvasSection = document.querySelector('.scroll-canvas-section');
+  const canvas = document.getElementById('scrub-canvas');
+  const context = canvas ? canvas.getContext('2d') : null;
+  
+  // Set your total number of frames and the starting number
+  const frameCount = 30; 
+  const startingFrame = 1; 
 
+  // Generates "frame_002.jpg", "frame_003.jpg", etc.
+  const currentFrame = index => `frames/frame_${index.toString().padStart(3, '0')}.jpg`;
+  const images = [];
+
+  if (canvas) {
+    // Preload the images starting from index 2
+    for (let i = startingFrame; i < startingFrame + frameCount; i++) {
+      const img = new Image();
+      img.src = currentFrame(i);
+      images.push(img);
+    }
+
+    // Draw the first frame (frame_002.jpg) immediately upon load
+    const firstImg = new Image();
+    firstImg.src = currentFrame(startingFrame);
+    firstImg.onload = function() {
+      // Dynamically match canvas resolution to the image's actual resolution
+      canvas.width = firstImg.width;
+      canvas.height = firstImg.height;
+      
+      // Force the image to draw exactly within these bounds
+      context.drawImage(firstImg, 0, 0, canvas.width, canvas.height);
+    }
+  } // <--- THIS CLOSING BRACKET WAS MISSING
+
+  // ==========================================
+  // 2. SCROLL LISTENER (Runs every time you scroll)
+  // ==========================================
+  window.addEventListener('scroll', () => {
+    const scrollY = window.scrollY;
+    
+    // ---- HERO SECTION LOGIC ----
+    const heroContainer = document.querySelector('.hero-container');
+    const heroImage = document.querySelector('.hero-image');
+    const heroLogo = document.querySelector('.overlay');
+    
+    const maxHeroScroll = 400; 
+    const heroProgress = Math.min(scrollY / maxHeroScroll, 1);
+    
+    const containerScale = 1 - (heroProgress * 0.15); 
+    const imageBrightness = 1 - (heroProgress * 0.85); 
+    const logoScale = 1 + (heroProgress * 0.15);
+    const logoGlow = heroProgress * 20; 
+    const logoGlowOpacity = heroProgress * 0.9; 
+    
+    if (heroContainer) heroContainer.style.transform = `scale(${containerScale})`;
+    if (heroImage) heroImage.style.filter = `brightness(${imageBrightness})`;
+    
+    if (heroLogo) {
+      heroLogo.style.transform = `scale(${logoScale})`;
+      heroLogo.style.filter = `drop-shadow(0px 0px ${logoGlow}px rgba(255, 255, 255, ${logoGlowOpacity}))`;
+    }
+
+    // ---- CANVAS SCRUBBING LOGIC ----
+    if (canvasSection && images.length > 0) {
+      const rect = canvasSection.getBoundingClientRect();
+      const scrollDistance = -rect.top;
+      const maxScroll = canvasSection.offsetHeight - window.innerHeight;
+      
+      let progress = scrollDistance / maxScroll;
+      progress = Math.max(0, Math.min(progress, 1)); // Clamp between 0 and 1
+      
+      // Calculate which frame to show based on scroll progress
+      const frameIndex = Math.min(
+        frameCount - 1,
+        Math.floor(progress * frameCount)
+      );
+
+      // Draw the correct frame strictly within the canvas boundaries
+      requestAnimationFrame(() => {
+        if (images[frameIndex]) {
+          context.drawImage(images[frameIndex], 0, 0, canvas.width, canvas.height);
+        }
+      });
+    }
+  });
+</script>
 </html>
