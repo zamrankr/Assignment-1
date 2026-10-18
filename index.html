@@ -437,7 +437,7 @@
 /* Trailers Cards Section */
   .more-trailers-section {
     width: 100%;
-    background-color: #16172A; /* Matches your body background */
+    background-color: #16172A; 
     display: flex;
     justify-content: center;
     padding: 60px 40px;
@@ -518,7 +518,7 @@
 
 
   .scroll-canvas-section {
-    /* Controls how much scrolling is required to finish the sequence */
+   
     height: 250vh; 
     position: relative;
     background-color: #000;
@@ -541,6 +541,87 @@
     object-fit: cover; 
     display: block;
     object-position: center center;
+  }
+
+  .ultimate-vicecity {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 50px; 
+    padding: 50px 20px;
+  }
+
+ 
+  .promo-card {
+    position: relative; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    max-width: 1500px;
+  }
+  
+  .promo-card img {
+    width: 100%;
+    border-radius: 40px;
+    display: block;
+  }
+
+  .promo-content {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    right: 10%; 
+    justify-content: center;
+  }
+
+  .promo-preorder-bonus {
+    font-size: 20px;
+    font-weight: 700;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color: #95eef1;
+    margin-bottom: 10px;
+  }
+
+  .promo-heading {
+    font-size: 70px;
+    font-weight: 700;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color: #fff9cb;
+    line-height: 1.1;
+    margin-bottom: 20px;
+  }
+
+  .promo-para {
+    font-size: 30px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color: #ffffff;
+    line-height: 1.4;
+  }
+
+  .promo-content button {
+    margin-top: 40px;
+    padding: 22px 22px;
+    font-size: 22px;
+    font-weight: 700;
+    background-color: #fff9cb;
+    color: #16172A;
+    border: none;
+    border-radius: 50px;
+    width: 210px;
+    height: 69px;
+    cursor: pointer;
+    transition: background-color 0.5s ease, color 0.5s ease, box-shadow 0.5s ease;
+  }
+
+  .promo-content button:hover {
+    color: #974858;
+    box-shadow: 
+      0 0 10px #ffffff,   
+      0 0 40px #ff69b4,   
+      0 0 50px #ff1493,   
+      inset 0 0 14px rgba(255, 255, 255, 0.6); 
   }
 
 </style>
@@ -708,6 +789,31 @@
   </div>
 </div>
  
+<div class="ultimate-vicecity">
+  
+  <!-- Ultimate Edition Card -->
+  <div class="promo-card">
+    <img src="ultimate-edition.avif" alt="Ultimate Edition">
+    <div class="promo-content">
+      <p class="promo-heading">ULTIMATE<br> EDITION </p>
+      <p class="promo-para">An exclusive collection of items <br> threaded across all aspects <br> of Jason and Lucia's story.</p>
+      <button>Learn More →</button>
+    </div>
+  </div>
+
+  <!-- Vice City Pack Card -->
+  <div class="promo-card">
+    <img src="VINTAGE_VICE_CITY_PACK_01.jpg" alt="Vintage Vice City Pack">
+    <div class="promo-content">
+      <p class="promo-preorder-bonus">PRE-ORDER BONUSES</p>
+      <p class="promo-heading">VINTAGE<br> VICE CITY PACK</p>
+      <p class="promo-para">Pre-order to get unique benefits that flash <br> back to when the neon burned brightest.</p>
+      <button>Learn More →</button>
+    </div>
+  </div>
+
+</div>
+
 </body>
 <script>
   // ==========================================
