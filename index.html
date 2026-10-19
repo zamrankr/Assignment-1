@@ -39,18 +39,12 @@
 
   </div>
 
-
-  <button class="menu-button" aria-label="Expand Navigation Menu" aria-expanded="false">
-    <span></span>
-    <span></span>
-  </button>
-
+  
   <input type="checkbox" id="menu-toggle" class="menu-toggle">
-
-<label for="menu-toggle" class="menu-button" aria-label="Toggle navigation menu">
+  <label for="menu-toggle" class="menu-button" aria-label="Toggle navigation menu">
     <span></span>
     <span></span>
-</label>
+  </label>
 
 <!-- Navigation overlay -->
 <nav class="menu-overlay">
@@ -343,146 +337,61 @@
 
 </body>
 <script>
-  // ==========================================
-  // 1. CANVAS SETUP (Runs once on page load)
-  // ==========================================
-  const canvasSection = document.querySelector('.scroll-canvas-section');
-  const canvas = document.getElementById('scrub-canvas');
-  const context = canvas ? canvas.getContext('2d') : null;
-  
-  // Set your total number of frames and the starting number
-  const frameCount = 30; 
-  const startingFrame = 1; 
-
-  // Generates "frame_002.jpg", "frame_003.jpg", etc.
-  const currentFrame = index => `frames/frame_${index.toString().padStart(3, '0')}.jpg`;
-  const images = [];
-
-  if (canvas) {
-    // Preload the images starting from index 2
-    for (let i = startingFrame; i < startingFrame + frameCount; i++) {
+  // 1. REUSABLE CANVAS SETUP
+  const setupCanvas = (sectionSel, canvasId, frameCount, getPath) => {
+    const section = document.querySelector(sectionSel);
+    const canvas = document.getElementById(canvasId);
+    if (!canvas || !section) return null;
+    
+    const ctx = canvas.getContext('2d');
+    const imgs = Array.from({ length: frameCount }, (_, i) => {
       const img = new Image();
-      img.src = currentFrame(i);
-      images.push(img);
-    }
+      img.src = getPath(i + 1);
+      return img;
+    });
 
-    // Draw the first frame (frame_002.jpg) immediately upon load
-    const firstImg = new Image();
-    firstImg.src = currentFrame(startingFrame);
-    firstImg.onload = function() {
-      // Dynamically match canvas resolution to the image's actual resolution
-      canvas.width = firstImg.width;
-      canvas.height = firstImg.height;
-      
-      // Force the image to draw exactly within these bounds
-      context.drawImage(firstImg, 0, 0, canvas.width, canvas.height);
-    }
-  } 
+    imgs[0].onload = () => {
+      canvas.width = imgs[0].width;
+      canvas.height = imgs[0].height;
+      ctx.drawImage(imgs[0], 0, 0, canvas.width, canvas.height);
+    };
 
-  // ==========================================
-  // 1B. SECOND CANVAS SETUP
-  // ==========================================
-  const canvasSection2 = document.querySelector('.scroll-canvas-section-2');
-  const canvas2 = document.getElementById('scrub-canvas-2');
-  const context2 = canvas2 ? canvas2.getContext('2d') : null;
-  
-  // UPDATE THESE to match your second video's frame count and starting number
-  const frameCount2 = 35; 
-  const startingFrame2 = 1; 
+    return { section, canvas, ctx, imgs, frameCount };
+  };
 
-  // Make sure to use a different folder (e.g., frames2/) for the second video
-  const currentFrame2 = index => `frames2/frame_${index.toString().padStart(3, '0')} (1).jpg`;
-  const images2 = [];
+  const canvases = [
+    setupCanvas('.scroll-canvas-section', 'scrub-canvas', 30, i => `frames/frame_${String(i).padStart(3, '0')}.jpg`),
+    setupCanvas('.scroll-canvas-section-2', 'scrub-canvas-2', 35, i => `frames2/frame_${String(i).padStart(3, '0')} (1).jpg`)
+  ].filter(Boolean);
 
-  if (canvas2) {
-    for (let i = startingFrame2; i < startingFrame2 + frameCount2; i++) {
-      const img = new Image();
-      img.src = currentFrame2(i);
-      images2.push(img);
-    }
+  // 2. DOM ELEMENTS FOR HERO
+  const heroCtr = document.querySelector('.hero-container');
+  const heroImg = document.querySelector('.hero-image');
+  const heroLogo = document.querySelector('.overlay');
 
-    const firstImg2 = new Image();
-    firstImg2.src = currentFrame2(startingFrame2);
-    firstImg2.onload = function() {
-      canvas2.width = firstImg2.width;
-      canvas2.height = firstImg2.height;
-      context2.drawImage(firstImg2, 0, 0, canvas2.width, canvas2.height);
-    }
-  }
-
-
-  // ==========================================
-  // 2. SCROLL LISTENER (Runs every time you scroll)
-  // ==========================================
+  // 3. COMBINED SCROLL LISTENER
   window.addEventListener('scroll', () => {
-    const scrollY = window.scrollY;
+    const sy = window.scrollY;
     
-    // ---- HERO SECTION LOGIC ----
-    const heroContainer = document.querySelector('.hero-container');
-    const heroImage = document.querySelector('.hero-image');
-    const heroLogo = document.querySelector('.overlay');
-    
-    const maxHeroScroll = 400; 
-    const heroProgress = Math.min(scrollY / maxHeroScroll, 1);
-    
-    const containerScale = 1 - (heroProgress * 0.15); 
-    const imageBrightness = 1 - (heroProgress * 0.85); 
-    const logoScale = 1 + (heroProgress * 0.15);
-    const logoGlow = heroProgress * 20; 
-    const logoGlowOpacity = heroProgress * 0.9; 
-    
-    if (heroContainer) heroContainer.style.transform = `scale(${containerScale})`;
-    if (heroImage) heroImage.style.filter = `brightness(${imageBrightness})`;
-    
+    // Hero Effects
+    const p = Math.min(sy / 400, 1);
+    if (heroCtr) heroCtr.style.transform = `scale(${1 - p * 0.15})`;
+    if (heroImg) heroImg.style.filter = `brightness(${1 - p * 0.85})`;
     if (heroLogo) {
-      heroLogo.style.transform = `scale(${logoScale})`;
-      heroLogo.style.filter = `drop-shadow(0px 0px ${logoGlow}px rgba(255, 255, 255, ${logoGlowOpacity}))`;
+      heroLogo.style.transform = `scale(${1 + p * 0.15})`;
+      heroLogo.style.filter = `drop-shadow(0 0 ${p * 20}px rgba(255,255,255,${p * 0.9}))`;
     }
 
-    // ---- CANVAS SCRUBBING LOGIC ----
-    if (canvasSection && images.length > 0) {
-      const rect = canvasSection.getBoundingClientRect();
-      const scrollDistance = -rect.top;
-      const maxScroll = canvasSection.offsetHeight - window.innerHeight;
+    // Canvas Scrubbing
+    canvases.forEach(({ section, canvas, ctx, imgs, frameCount }) => {
+      const rect = section.getBoundingClientRect();
+      const scrollP = Math.max(0, Math.min(-rect.top / (section.offsetHeight - window.innerHeight), 1));
+      const frame = Math.min(frameCount - 1, Math.floor(scrollP * frameCount));
       
-      let progress = scrollDistance / maxScroll;
-      progress = Math.max(0, Math.min(progress, 1)); // Clamp between 0 and 1
-      
-      // Calculate which frame to show based on scroll progress
-      const frameIndex = Math.min(
-        frameCount - 1,
-        Math.floor(progress * frameCount)
-      );
-
-      // Draw the correct frame strictly within the canvas boundaries
-      requestAnimationFrame(() => {
-        if (images[frameIndex]) {
-          context.drawImage(images[frameIndex], 0, 0, canvas.width, canvas.height);
-        }
-      });
-    }
-
-    // ---- SECOND CANVAS SCRUBBING LOGIC ----
-    if (canvasSection2 && images2.length > 0) {
-      const rect2 = canvasSection2.getBoundingClientRect();
-      const scrollDistance2 = -rect2.top;
-      const maxScroll2 = canvasSection2.offsetHeight - window.innerHeight;
-      
-      let progress2 = scrollDistance2 / maxScroll2;
-      progress2 = Math.max(0, Math.min(progress2, 1)); 
-      
-      const frameIndex2 = Math.min(
-        frameCount2 - 1,
-        Math.floor(progress2 * frameCount2)
-      );
-
-      requestAnimationFrame(() => {
-        if (images2[frameIndex2]) {
-          context2.drawImage(images2[frameIndex2], 0, 0, canvas2.width, canvas2.height);
-        }
-      });
-    }
+      if (imgs[frame]) {
+        requestAnimationFrame(() => ctx.drawImage(imgs[frame], 0, 0, canvas.width, canvas.height));
+      }
+    });
   });
-
 </script>
 </html>

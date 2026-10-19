@@ -1,85 +1,119 @@
-<!doctype html>
+<!-- gallery.html -->
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>Artwork & Wallpapers — Grand Theft Auto VI</title>
-    <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="media-pages.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Artwork & Wallpapers — Grand Theft Auto VI</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="media-pages.css">
+  <link rel="icon" type="image/x-icon" href="/gta6-logo.png">
 </head>
 
 <body class="media-page">
-    <header class="media-header"><a class="mini-brand" href="index.html" aria-label="Home">VI<span> /
-                LEONIDA</span></a><button class="media-menu-toggle" aria-label="Open menu"
-            aria-expanded="false">☰</button>
-        <nav class="media-nav"><a href="index.html">HOME</a><a href="music.html">MUSIC</a><a
-                href="gallery.html">GALLERY</a></nav>
-    </header>
-    <main id="top">
-        <section class="media-hero gallery-hero">
-            <div class="hero-shade"></div>
-            <p class="eyebrow">MEDIA / LEONIDA COLLECTION</p>
-            <h1>ARTWORK &<br><em>WALLPAPERS</em></h1>
-            <p class="hero-copy">A closer look at the people, places, and stories that make Leonida unforgettable.</p><a
-                class="outline-cta" href="#artwork">VIEW THE COLLECTION ↘</a>
-        </section>
-        <section id="artwork" class="gallery-section">
-            <div class="section-heading">
-                <div>
-                    <p class="eyebrow">THE VISUAL ARCHIVE</p>
-                    <h2>SELECTED ARTWORK</h2>
-                </div><span>COLLECTION / 08</span>
-            </div>
-            <div class="gallery-filters" role="group" aria-label="Filter artwork"><button class="filter active"
-                    data-filter="all">ALL ARTWORK</button><button class="filter"
-                    data-filter="characters">CHARACTERS</button><button class="filter"
-                    data-filter="places">PLACES</button><button class="filter" data-filter="stories">STORY</button>
-            </div>
-            <div class="art-grid">
-                <figure class="art-card tall" data-category="characters"><img src="launch-image.png"
-                        alt="Jason and Lucia artwork">
-                    <figcaption><span>01 / CHARACTERS</span><strong>JASON & LUCIA</strong></figcaption>
-                </figure>
-                <figure class="art-card" data-category="stories"><img src="Jason_and_Lucia_Robbery_portrait.jpg"
-                        alt="Jason and Lucia robbery artwork">
-                    <figcaption><span>02 / STORY</span><strong>THE SCORE</strong></figcaption>
-                </figure>
-                <figure class="art-card" data-category="places"><img src="Jason_and_Lucia_Beach_landscape.jpg"
-                        alt="Leonida beach landscape">
-                    <figcaption><span>03 / PLACES</span><strong>COASTAL DREAMS</strong></figcaption>
-                </figure>
-                <figure class="art-card" data-category="characters"><img src="Cal_Hampton_03.jpg"
-                        alt="Cal Hampton character artwork">
-                    <figcaption><span>04 / CHARACTERS</span><strong>CAL HAMPTON</strong></figcaption>
-                </figure>
-                <figure class="art-card wide" data-category="stories"><img src="Jason_and_Lucia_02.jpg"
-                        alt="Jason and Lucia story artwork">
-                    <figcaption><span>05 / STORY</span><strong>PARTNERS IN CRIME</strong></figcaption>
-                </figure>
-                <figure class="art-card" data-category="places"><img src="VINTAGE_VICE_CITY_PACK_01.jpg"
-                        alt="Vintage Vice City artwork">
-                    <figcaption><span>06 / PLACES</span><strong>VICE CITY AFTER DARK</strong></figcaption>
-                </figure>
-                <figure class="art-card" data-category="characters"><img src="Jason_and_Lucia_02_portrait.jpg"
-                        alt="Character portrait artwork">
-                    <figcaption><span>07 / CHARACTERS</span><strong>THE DUO</strong></figcaption>
-                </figure>
-                <figure class="art-card" data-category="places"><img src="ultimate-edition.avif"
-                        alt="Ultimate edition artwork">
-                    <figcaption><span>08 / COLLECTION</span><strong>THE WORLD AWAITS</strong></figcaption>
-                </figure>
-            </div>
-            <p class="gallery-note">Artwork uses image files from your existing project. Select any image to view it
-                larger.</p>
-        </section>
-        <div class="lightbox" aria-hidden="true"><button class="lightbox-close" aria-label="Close image">×</button><img
-                src="" alt=""></div>
-    </main>
-    <script>const filters = document.querySelectorAll('.filter'); filters.forEach(f => f.addEventListener('click', () => { filters.forEach(x => x.classList.remove('active')); f.classList.add('active'); document.querySelectorAll('.art-card').forEach(c => c.hidden = f.dataset.filter !== 'all' && c.dataset.category !== f.dataset.filter) })); const lb = document.querySelector('.lightbox'), li = lb.querySelector('img'); document.querySelectorAll('.art-card img').forEach(i => i.addEventListener('click', () => { li.src = i.src; li.alt = i.alt; lb.classList.add('show'); lb.setAttribute('aria-hidden', 'false') })); function closeLb() { lb.classList.remove('show'); lb.setAttribute('aria-hidden', 'true') } lb.querySelector('button').addEventListener('click', closeLb); lb.addEventListener('click', e => { if (e.target === lb) closeLb() }); document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLb() });</script>
-    <footer class="media-footer"><a href="index.html">GRAND THEFT AUTO VI</a><span>VICE CITY • LEONIDA</span><a
-            href="#top">BACK TO TOP ↑</a></footer>
-    <script>const t = document.querySelector('.media-menu-toggle'), n = document.querySelector('.media-nav'); t?.addEventListener('click', () => { const o = n.classList.toggle('open'); t.setAttribute('aria-expanded', String(o)); t.textContent = o ? '×' : '☰' });</script>
+  <div class="media-header">
+    <a class="mini-brand" href="index.html" aria-label="Home">VI<span> / LEONIDA</span></a>
+    <button class="media-menu-toggle" aria-label="Open menu" aria-expanded="false">
+      <span></span>
+      <span></span>
+    </button>
+    <nav class="media-nav">
+      <a href="index.html">HOME</a>
+      <a href="music.html">MUSIC</a>
+      <a href="gallery.html">GALLERY</a>
+    </nav>
+  </div>
+  
+  <div id="top">
+    <div class="media-hero gallery-hero">
+      <div class="hero-shade"></div>
+      <p class="eyebrow">MEDIA / LEONIDA COLLECTION</p>
+      <h1>ARTWORK &<br><span>WALLPAPERS</span></h1>
+      <p class="hero-copy">A closer look at the people, places, and stories that make Leonida unforgettable.</p>
+      <a class="outline-cta" href="#artwork">VIEW THE COLLECTION ↘</a>
+    </div>
+    
+    <div id="artwork" class="gallery-section">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">THE VISUAL ARCHIVE</p>
+          <h2>SELECTED ARTWORK</h2>
+        </div>
+        <span>COLLECTION / 08</span>
+      </div>
+      
+      <div class="art-grid">
+        <div class="art-card tall" data-category="characters">
+          <img src="launch-image.png" alt="Jason and Lucia artwork">
+          <div class="caption">
+            <span>01 / CHARACTERS</span>
+            <span>JASON & LUCIA</span>
+          </div>
+        </div>
+        <div class="art-card" data-category="stories">
+          <img src="Jason_and_Lucia_Robbery_portrait.jpg" alt="Jason and Lucia robbery artwork">
+          <div class="caption">
+            <span>02 / STORY</span>
+            <span>THE SCORE</span>
+          </div>
+        </div>
+        <div class="art-card" data-category="places">
+          <img src="Jason_and_Lucia_Beach_landscape.jpg" alt="Leonida beach landscape">
+          <div class="caption">
+            <span>03 / PLACES</span>
+            <span>COASTAL DREAMS</span>
+          </div>
+        </div>
+        <div class="art-card" data-category="characters">
+          <img src="Cal_Hampton_03.jpg" alt="Cal Hampton character artwork">
+          <div class="caption">
+            <span>04 / CHARACTERS</span>
+            <span>CAL HAMPTON</span>
+          </div>
+        </div>
+        <div class="art-card wide" data-category="stories">
+          <img src="Jason_and_Lucia_02.jpg" alt="Jason and Lucia story artwork">
+          <div class="caption">
+            <span>05 / STORY</span>
+            <span>PARTNERS IN CRIME</span>
+          </div>
+        </div>
+        <div class="art-card" data-category="places">
+          <img src="VINTAGE_VICE_CITY_PACK_01.jpg" alt="Vintage Vice City artwork">
+          <div class="caption">
+            <span>06 / PLACES</span>
+            <span>VICE CITY AFTER DARK</span>
+          </div>
+        </div>
+        <div class="art-card" data-category="characters">
+          <img src="Jason_and_Lucia_02_portrait.jpg" alt="Character portrait artwork">
+          <div class="caption">
+            <span>07 / CHARACTERS</span>
+            <span>THE DUO</span>
+          </div>
+        </div>
+        <div class="art-card" data-category="places">
+          <img src="ultimate-edition.avif" alt="Ultimate edition artwork">
+          <div class="caption">
+            <span>08 / COLLECTION</span>
+            <span>THE WORLD AWAITS</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </body>
+<script>
+  const menuToggle = document.querySelector('.media-menu-toggle');
+  const mediaNav = document.querySelector('.media-nav');
 
+  if (menuToggle && mediaNav) {
+    menuToggle.addEventListener('click', () => {
+      mediaNav.classList.toggle('open');
+      const isExpanded = menuToggle.getAttribute('aria-expanded') === 'true';
+      menuToggle.setAttribute('aria-expanded', !isExpanded);
+    });
+  }
+</script>
 </html>

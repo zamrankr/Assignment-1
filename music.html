@@ -1,108 +1,134 @@
-<!doctype html>
+<!-- music.html -->
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>Music — Grand Theft Auto VI</title>
-    <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="media-pages.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Music — Grand Theft Auto VI</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="media-pages.css">
+  <link rel="icon" type="image/x-icon" href="/gta6-logo.png">
 </head>
 
 <body class="media-page">
-    <header class="media-header"><a class="mini-brand" href="index.html" aria-label="Home">VI<span> /
-                LEONIDA</span></a><button class="media-menu-toggle" aria-label="Open menu"
-            aria-expanded="false">☰</button>
-        <nav class="media-nav"><a href="index.html">HOME</a><a href="music.html">MUSIC</a><a
-                href="gallery.html">GALLERY</a></nav>
-    </header>
-    <main id="top">
-        <section class="media-hero music-hero">
-            <div class="hero-shade"></div>
-            <p class="eyebrow">THE SOUND OF LEONIDA</p>
-            <h1>THE MUSIC<br><em>OF GTA VI</em></h1>
-            <p class="hero-copy">From late-night radio to the tracks that define Vice City. Tune in and find your
-                frequency.</p><a class="outline-cta" href="#stations">EXPLORE THE SOUND ↘</a>
-        </section>
-        <section class="intro-row">
-            <div>
-                <p class="eyebrow">01 / RADIO</p>
-                <h2>Broadcasting<br>across Leonida.</h2>
-            </div>
-            <p>Turn up the volume. Explore a selection of fictional radio stations inspired by the varied sounds of the
-                state—from sun-soaked Latin rhythms to back-road country and late-night electronic beats.</p>
-        </section>
-        <section id="stations" class="station-section">
-            <div class="section-heading">
-                <div>
-                    <p class="eyebrow">FIND YOUR FREQUENCY</p>
-                    <h2>ON THE AIR</h2>
-                </div><span>STATION SELECTOR / 06</span>
-            </div>
-            <div class="station-grid">
-                <article class="station-card"><img src="Jason_and_Lucia_Beach_landscape.jpg"
-                        alt="Coastal drive artwork">
-                    <div class="station-info"><span>01 / LATIN</span>
-                        <h3>COCOTEO</h3>
-                        <p>Modern Latin • Sunsets and city lights</p><button class="tune-button"
-                            data-station="COCOTEO">＋ TUNE IN</button>
-                    </div>
-                </article>
-                <article class="station-card"><img src="Cal_Hampton_03.jpg" alt="Leonida character artwork">
-                    <div class="station-info"><span>02 / COUNTRY</span>
-                        <h3>BACK COUNTRY</h3>
-                        <p>Renegade country • Dusty highways</p><button class="tune-button"
-                            data-station="BACK COUNTRY">＋ TUNE IN</button>
-                    </div>
-                </article>
-                <article class="station-card"><img src="Jason_and_Lucia_02.jpg" alt="Jason and Lucia artwork">
-                    <div class="station-info"><span>03 / DANCE</span>
-                        <h3>AFRO BANK FM</h3>
-                        <p>Amapiano • African classics • 3-step</p><button class="tune-button"
-                            data-station="AFRO BANK FM">＋ TUNE IN</button>
-                    </div>
-                </article>
-                <article class="station-card"><img src="Jason_and_Lucia_01_portrait.jpg" alt="Character portrait">
-                    <div class="station-info"><span>04 / ROCK</span>
-                        <h3>THE CHAMBER</h3>
-                        <p>Heavy metal for the open road</p><button class="tune-button" data-station="THE CHAMBER">＋
-                            TUNE IN</button>
-                    </div>
-                </article>
-                <article class="station-card"><img src="Jason_and_Lucia_Robbery_portrait.jpg" alt="Action artwork">
-                    <div class="station-info"><span>05 / POP</span>
-                        <h3>FLASH FM</h3>
-                        <p>Pop classics and guaranteed grooves</p><button class="tune-button" data-station="FLASH FM">＋
-                            TUNE IN</button>
-                    </div>
-                </article>
-                <article class="station-card"><img src="VINTAGE_VICE_CITY_PACK_01.jpg" alt="Vintage Vice City artwork">
-                    <div class="station-info"><span>06 / HIP-HOP</span>
-                        <h3>DIRTY SOUTH CLASSICS</h3>
-                        <p>Southern hospitality and rap essentials</p><button class="tune-button"
-                            data-station="DIRTY SOUTH CLASSICS">＋ TUNE IN</button>
-                    </div>
-                </article>
-            </div>
-            <div class="player-bar">
-                <div class="equalizer"><i></i><i></i><i></i><i></i></div>
-                <div><span class="eyebrow">NOW TUNED TO</span><strong id="now-playing">SELECT A STATION</strong></div>
-                <span class="player-note">DEMO PLAYER · NO AUDIO STREAM CONNECTED</span>
-            </div>
-        </section>
-        <section class="album-banner">
-            <div>
-                <p class="eyebrow">ORIGINAL MUSIC</p>
-                <h2>THE ALBUM</h2>
-                <p>A soundtrack for the long way home, the wrong turn, and everything after dark.</p>
-            </div><a class="outline-cta" href="https://www.rockstargames.com/VI/music" target="_blank"
-                rel="noreferrer">OFFICIAL MUSIC PAGE ↗</a>
-        </section>
-    </main>
-    <script>document.querySelectorAll('.tune-button').forEach(b => b.addEventListener('click', () => { document.getElementById('now-playing').textContent = b.dataset.station; document.querySelectorAll('.tune-button').forEach(x => x.textContent = '＋ TUNE IN'); b.textContent = '✓ SELECTED'; }));</script>
-    <footer class="media-footer"><a href="index.html">GRAND THEFT AUTO VI</a><span>VICE CITY • LEONIDA</span><a
-            href="#top">BACK TO TOP ↑</a></footer>
-    <script>const t = document.querySelector('.media-menu-toggle'), n = document.querySelector('.media-nav'); t?.addEventListener('click', () => { const o = n.classList.toggle('open'); t.setAttribute('aria-expanded', String(o)); t.textContent = o ? '×' : '☰' });</script>
+  <div class="media-header">
+    <a class="mini-brand" href="index.html" aria-label="Home">VI<span> / LEONIDA</span></a>
+    <button class="media-menu-toggle" aria-label="Open menu" aria-expanded="false">
+      <span></span>
+      <span></span>
+    </button>
+    <nav class="media-nav">
+      <a href="index.html">HOME</a>
+      <a href="music.html">MUSIC</a>
+      <a href="gallery.html">GALLERY</a>
+    </nav>
+  </div>
+  
+  <div id="top">
+    <div class="media-hero music-hero">
+      <div class="hero-shade"></div>
+      <p class="eyebrow">THE SOUND OF LEONIDA</p>
+      <h1>THE MUSIC<br><span>OF GTA VI</span></h1>
+      <p class="hero-copy">From late-night radio to the tracks that define Vice City. Tune in and find your frequency.</p>
+      <a class="outline-cta" href="#stations">EXPLORE THE SOUND ↘</a>
+    </div>
+    
+    <div class="intro-row">
+      <div>
+        <p class="eyebrow">01 / RADIO</p>
+        <h2>Broadcasting<br>across Leonida.</h2>
+      </div>
+      <p>Turn up the volume. Explore a selection of fictional radio stations inspired by the varied sounds of the state—from sun-soaked Latin rhythms to back-road country and late-night electronic beats.</p>
+    </div>
+    
+    <div id="stations" class="station-section">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">FIND YOUR FREQUENCY</p>
+          <h2>ON THE AIR</h2>
+        </div>
+        <span>STATION SELECTOR / 06</span>
+      </div>
+      
+      <div class="station-grid">
+        <div class="station-card">
+          <img src="Jason_and_Lucia_Beach_landscape.jpg" alt="Coastal drive artwork">
+          <div class="station-info">
+            <span>01 / LATIN</span>
+            <h2>COCOTEO</h2>
+            <p>Modern Latin • Sunsets and city lights</p>
+            <button class="tune-button" data-station="COCOTEO">＋ TUNE IN</button>
+          </div>
+        </div>
+        <div class="station-card">
+          <img src="Cal_Hampton_03.jpg" alt="Leonida character artwork">
+          <div class="station-info">
+            <span>02 / COUNTRY</span>
+            <h2>BACK COUNTRY</h2>
+            <p>Renegade country • Dusty highways</p>
+            <button class="tune-button" data-station="BACK COUNTRY">＋ TUNE IN</button>
+          </div>
+        </div>
+        <div class="station-card">
+          <img src="Jason_and_Lucia_02.jpg" alt="Jason and Lucia artwork">
+          <div class="station-info">
+            <span>03 / DANCE</span>
+            <h2>AFRO BANK FM</h2>
+            <p>Amapiano • African classics • 3-step</p>
+            <button class="tune-button" data-station="AFRO BANK FM">＋ TUNE IN</button>
+          </div>
+        </div>
+        <div class="station-card">
+          <img src="Jason_and_Lucia_01_portrait.jpg" alt="Character portrait">
+          <div class="station-info">
+            <span>04 / ROCK</span>
+            <h2>THE CHAMBER</h2>
+            <p>Heavy metal for the open road</p>
+            <button class="tune-button" data-station="THE CHAMBER">＋ TUNE IN</button>
+          </div>
+        </div>
+        <div class="station-card">
+          <img src="Jason_and_Lucia_Robbery_portrait.jpg" alt="Action artwork">
+          <div class="station-info">
+            <span>05 / POP</span>
+            <h2>FLASH FM</h2>
+            <p>Pop classics and guaranteed grooves</p>
+            <button class="tune-button" data-station="FLASH FM">＋ TUNE IN</button>
+          </div>
+        </div>
+        <div class="station-card">
+          <img src="VINTAGE_VICE_CITY_PACK_01.jpg" alt="Vintage Vice City artwork">
+          <div class="station-info">
+            <span>06 / HIP-HOP</span>
+            <h2>DIRTY SOUTH CLASSICS</h2>
+            <p>Southern hospitality and rap essentials</p>
+            <button class="tune-button" data-station="DIRTY SOUTH CLASSICS">＋ TUNE IN</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="album-banner">
+      <div>
+        <p class="eyebrow">ORIGINAL MUSIC</p>
+        <h2>THE ALBUM</h2>
+        <p>A soundtrack for the long way home, the wrong turn, and everything after dark.</p>
+      </div>
+      <a class="outline-cta" href="https://www.rockstargames.com/VI/music" target="_blank">OFFICIAL MUSIC PAGE ↗</a>
+    </div>
+  </div>
 </body>
+<script>
+  const menuToggle = document.querySelector('.media-menu-toggle');
+  const mediaNav = document.querySelector('.media-nav');
 
+  if (menuToggle && mediaNav) {
+    menuToggle.addEventListener('click', () => {
+      mediaNav.classList.toggle('open');
+      const isExpanded = menuToggle.getAttribute('aria-expanded') === 'true';
+      menuToggle.setAttribute('aria-expanded', !isExpanded);
+    });
+  }
+</script>
 </html>
